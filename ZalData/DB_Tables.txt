@@ -41,7 +41,7 @@ CREATE TABLE ending_data (id INTEGER PRIMARY KEY ASC, ending_id INTEGER, inflect
 
 CREATE TABLE stems (id INTEGER PRIMARY KEY ASC, stem_string TEXT UNIQUE);
 
-CREATE TABLE stem_data (id INTEGER PRIMARY KEY ASC, stem_id INTEGER, gram_hash TEXT, lexeme_id INTEGER, FOREIGN KEY (stem_id) REFERENCES stems (id), FOREIGN KEY (lexeme_id) REFERENCES descriptor (id));
+CREATE TABLE stem_data (id INTEGER PRIMARY KEY ASC, stem_id INTEGER, gram_hash TEXT, lexeme_id INTEGER, inflection_id INTEGER, FOREIGN KEY (stem_id) REFERENCES stems (id), FOREIGN KEY (lexeme_id) REFERENCES descriptor (id), FOREIGN KEY (inflection_id) REFERENCES inflection (id));
 
 CREATE TABLE stress_data (id INTEGER PRIMARY KEY, form_id INTEGER, position INTEGER, is_primary BOOLEAN, is_variant BOOLEAN, FOREIGN KEY(form_id) REFERENCES wordforms);
 
