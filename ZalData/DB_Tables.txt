@@ -111,7 +111,8 @@ CREATE INDEX idx_stems_select ON stems (stem_string);
 CREATE INDEX idx_stem_data_gram_hash ON stem_data (gram_hash);
 CREATE INDEX idx_stem_data_stem_id ON stem_data (stem_id);
 CREATE INDEX idx_stem_data_select_lexeme_id ON stem_data (lexeme_id);
-CREATE INDEX idx_stem_data_select ON stem_data (lexeme_id, stem_id, gram_hash);
+CREATE INDEX idx_stem_data_select_lexeme_id ON stem_data (inflection_id);
+CREATE INDEX idx_stem_data_select ON stem_data (lexeme_id, inflection_id, stem_id, gram_hash);
 
 CREATE INDEX idx_ending_data1 ON ending_data (number, case_value, stress);
 CREATE INDEX idx_ending_data2 ON ending_data (gender, number, case_value, animacy, stress);
@@ -151,6 +152,9 @@ CREATE INDEX idx_endings_subtable_id ON endings_for_analysis (subtable_id);
 CREATE INDEX idx_endings ON endings_for_analysis (ending);
 CREATE INDEX idx_stems ON stems_for_analysis (stem);
 CREATE INDEX idx_stems_id ON stems_for_analysis (id);
+
+CREATE INDEX idx_stem_data_gram_hash_infl_id ON stem_data (gram_hash, inflection_id);
+CREATE INDEX idx_stem_data_stem_id ON stem_data (stem_id);
 
 CREATE INDEX idx_irregular_forms_descriptor_id ON irregular_forms (descriptor_id);
 CREATE INDEX idx_irregular_forms_gram_hash ON irregular_forms (gram_hash);
