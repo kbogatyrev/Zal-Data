@@ -81,9 +81,9 @@ CREATE TABLE transcription_inputs (id INTEGER PRIMARY KEY, input_chars TEXT);
 CREATE TABLE transcription_rules (id INTEGER PRIMARY KEY, input_id INTEGER, stress TEXT, left_contexts TEXT, left_boundary TEXT, right_contexts TEXT, right_boundary TEXT, morpheme_type TEXT, subparadigm TEXT, gramm_gender TEXT, gramm_number TEXT, gramm_case TEXT, strength TEXT, is_variant BOOLEAN, target TEXT, transform TEXT, comment TEXT);
 
 -- Text analysis --
-CREATE TABLE text (id INTEGER PRIMARY KEY ASC, name TEXT, contents TEXT);
+CREATE TABLE text (id INTEGER PRIMARY KEY ASC, contents TEXT);
 
-CREATE TABLE text_metadata (id INTEGER PRIMARY KEY ASC, text_id INTEGER, category TEXT, content text, FOREIGN KEY (text_id) REFERENCES 
+CREATE TABLE text_metadata (id INTEGER PRIMARY KEY ASC, text_id INTEGER, key TEXT, value TEXT, FOREIGN KEY (text_id) REFERENCES 
 text(id));
 
 CREATE TABLE lines_in_text (id INTEGER PRIMARY KEY ASC, text_id INTEGER, line_number INTEGER, text_offset INTEGER, length INTEGER, number_of_words INTEGER, source TEXT, FOREIGN KEY (text_id) REFERENCES text(id));
