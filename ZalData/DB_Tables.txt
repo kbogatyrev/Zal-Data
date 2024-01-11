@@ -83,8 +83,7 @@ CREATE TABLE transcription_rules (id INTEGER PRIMARY KEY, input_id INTEGER, stre
 -- Text analysis --
 CREATE TABLE text (id INTEGER PRIMARY KEY ASC, contents TEXT);
 
-CREATE TABLE text_metadata (id INTEGER PRIMARY KEY ASC, text_id INTEGER, key TEXT, value TEXT, FOREIGN KEY (text_id) REFERENCES 
-text(id));
+CREATE TABLE text_metadata (id INTEGER PRIMARY KEY ASC, text_id INTEGER, author TEXT, book TEXT, page TEXT, title TEXT, dedication TEXT, chapter TEXT, footnote_ref TEXT, footnote_text TEXT, date TEXT, FOREIGN KEY (text_id) REFERENCES text(id));
 
 CREATE TABLE lines_in_text (id INTEGER PRIMARY KEY ASC, text_id INTEGER, line_number INTEGER, text_offset INTEGER, length INTEGER, number_of_words INTEGER, source TEXT, FOREIGN KEY (text_id) REFERENCES text(id));
 
