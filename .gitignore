@@ -1,0 +1,13 @@
+*.txt
+*.zip
+*.exe
+*.csv
+*.xlsx
+*.db3
+*.pdf
+!DB_Delete.txt
+!DB_Tables.txt
+!ENDINGS.txt
+!Rules2.txt
+!ZalData_Master.db3
+!TranscriptionRules.json
